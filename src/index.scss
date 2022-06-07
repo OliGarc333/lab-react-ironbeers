@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(128, 128, 128, 0.454);
 }
 
 code {
@@ -14,7 +15,8 @@ code {
 h1 {
   text-align: center;
   margin: 5%;
-  color: orangered;
+  color: gold;
+  text-shadow: 2px 2px #e27777;
 }
 
 p {
@@ -33,4 +35,26 @@ ul {
 .beer-list {
   display: flex;
   flex-direction: column;
+}
+
+.singlebeer img {
+  height: 5%;
+  width: 10%;
+}
+
+header {
+  img {
+    width: 40%;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 39%;
+  margin-left: 1%;
+  input,
+  label {
+    margin-top: 1%;
+  }
 }

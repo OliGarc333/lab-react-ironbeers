@@ -1,6 +1,7 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { loadBeer } from '../services/beers';
+import HomeButton from '../components/HomeButton';
 const SingleBeerPage = () => {
   const { id } = useParams();
 
@@ -9,19 +10,27 @@ const SingleBeerPage = () => {
   useEffect(() => {
     loadBeer(id).then(data => {
       setBeer(data);
-      console.log(beer);
     });
-  });
-
+  }, [id]);
+  console.log(beer);
   return (
     <div>
-      <header>
-        <Link to="/">
-          <img src="./../assets/header-img.png" alt="header" />
-        </Link>
-      </header>
-      <img src={beer} alt="Beer logo" />
-      {/* <h1>{beer.name}</h1> */}
+      <HomeButton />
+
+      <div className="singlebeer">
+        {beer && (
+          <>
+            <img src={beer.image_url} alt="Beer logo" />
+            <h3>{beer.name}</h3>
+            <h4>{beer.tagline}</h4>
+            <h4>{beer.first_brewed}</h4>
+            <h4>{beer.attenuation_level}</h4>
+            <p>{beer.description}</p>
+            <small>{beer.contributed_by}</small>
+          </>
+        )}
+        <hr />
+      </div>
     </div>
   );
 };
